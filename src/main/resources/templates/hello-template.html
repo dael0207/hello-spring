@@ -1,0 +1,8 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="'hello ' + ${name}">hello! empty</p>
+<!--서버를 실행시키지 않고 copy를 해서 주소창에 붙여넣어도
+hello! empty가 출력되지만 서버를 실행시키고 파라미터에 값을 넣으면
+hello!empty와 치환되어 출력된다-->
+</body>
+</html>
