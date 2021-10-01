@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class HelloSpringApplication {
-	//
+
 
 	public static void main(String[] args) {
 		/*메인 메소드를 실행하면 SpringApplication.run 해가지고

@@ -4,12 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ResponseBody;
-=======
->>>>>>> origin/master
 
-@Controller
+@Controller//스프링 컨테이너안에 헬로컨트롤러를 자동으로 스프링이 생성
 public class HelloController {
 
     //웹에서 /hello로 들어오면 여기로 연결해줌 스프링은 그럼
@@ -26,7 +23,6 @@ public class HelloController {
        model.addAttribute("name"/*키*/,name/*위에 네임과 같은것*/);
        return "hello-template";
     }
-<<<<<<< HEAD
 
     //API 문자열로 올려주는방법
     @GetMapping("hello-string")
@@ -59,6 +55,4 @@ public class HelloController {
         }
     }
 
-=======
->>>>>>> origin/master
 }
