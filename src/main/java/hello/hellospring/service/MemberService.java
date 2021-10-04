@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,8 @@ import java.util.Optional;
 //@Service //이걸 쓰면 이 아래 5~6줄을 스프링이 엥? 서비스네 이러고
 //컨테이너에 MemberService를 등록해줌
 //@Component라고 해도 되는데 @Service안에 컴포넌트도 있음
+
+@Transactional
 public class MemberService {
 
     private final Memberrepository memberRepository;

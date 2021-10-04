@@ -1,13 +1,13 @@
 package hello.hellospring;
 
-import hello.hellospring.repository.JdbcMemberRepository;
-import hello.hellospring.repository.Memberrepository;
-import hello.hellospring.repository.MemoryMemberRepository;
+import hello.hellospring.domain.Member;
+import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 @Configuration
@@ -20,21 +20,36 @@ public class SpringConfig {
     //@Autowired DataSource dataSource; 이렇게 그냥 연결 받을 수도 있음
     //근데 아래걸로 함
 
-    private DataSource dataSource;
+    /*private DataSource dataSource;
 
     @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(DataSource dataSource) {this.dataSource = dataSource;
+    }*/
+    /*private EntityManager em;
+
+    @Autowired
+    public SpringConfig(EntityManager em) {this.em = em;
+   }
+    */
+    //스프링 데이터 jpa사용 아래
+    private final Memberrepository memberrepository;
+    //인젝션 받는거
+
+    @Autowired
+    public SpringConfig(Memberrepository memberrepository) {
+        this.memberrepository = memberrepository;
     }
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberrepository());
+        return new MemberService(memberrepository);
     }
 
-    @Bean
-    public Memberrepository memberrepository() {
+    //@Bean
+    //public Memberrepository memberrepository() {
         //return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
-    }
+        //return new JdbcMemberRepository(dataSource);
+        //return new JdbcTempleteMemberRepository(dataSource);
+        //return new JpaMemberRepository(em);
+    //}
 }

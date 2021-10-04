@@ -43,7 +43,7 @@ public class JdbcMemberRepository implements Memberrepository {
             close(conn, pstmt, rs);
         }
     }
-    @Override
+    @Override //JdbcTempleteMemberRipostory의 findId와 같은내용
     public Optional<Member> findById(Long id) {
         String sql = "select * from member where id = ?";
         Connection conn = null;
