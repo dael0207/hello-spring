@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
@@ -44,6 +45,11 @@ public class SpringConfig {
     public MemberService memberService() {
         return new MemberService(memberrepository);
     }
+
+    /*@Bean 시간 측정 aop 빈으로 컨테이너에 등록하는것
+    public TimeTraceAop timeTraceAop() {
+        return new TimeTraceAop();
+    }*/
 
     //@Bean
     //public Memberrepository memberrepository() {
